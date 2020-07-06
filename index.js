@@ -102,6 +102,7 @@ const movieTemplate = (movieDetail) => {
             </div>
             </div>
         </article>
+        <!--           👇👇👇 applying parsed properties! -->
         <article data-value=${awards} class="notification is-primary">
             <p class="title">${movieDetail.Awards}</p>
             <p class="subtitle">Awards</p>
