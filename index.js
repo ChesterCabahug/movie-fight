@@ -70,7 +70,24 @@ const onMovieSelect = async (movie, summaryElement, side) => {
 }
 
 const runComparison = () => {
-    console.log("time for comparison!")
+    const leftSideStats = document.querySelectorAll("#left-summary .notification")
+    const rightSideStats = document.querySelectorAll("#right-summary .notification")
+
+    leftSideStats.forEach((leftStat, index) => {
+        const rightStat = rightSideStats[index]
+
+        const leftSideValue = leftStat.dataset.value
+        const rightSideValue = rightStat.dataset.value
+
+        if(rightSideValue > leftSideValue) {
+            leftStat.classList.remove("is-primary")
+            leftStat.classList.add("is-warning")
+        } else {
+            rightStat.classList.remove("is-primary")
+            rightStat.classList.add("is-warning")
+        }
+
+    })
 }
 
 const movieTemplate = (movieDetail) => {
@@ -102,7 +119,6 @@ const movieTemplate = (movieDetail) => {
             </div>
             </div>
         </article>
-        <!--           👇👇👇 applying parsed properties! -->
         <article data-value=${awards} class="notification is-primary">
             <p class="title">${movieDetail.Awards}</p>
             <p class="subtitle">Awards</p>
