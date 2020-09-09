@@ -1,11 +1,11 @@
 const debounce = (func, delay = 1000) => {
-    let timeoutID
+    let timeoutID;
     return (...args) => {
-        if(timeoutID) {
-            clearTimeout(timeoutID)
+        if (timeoutID) {
+            clearTimeout(timeoutID);
         }
         timeoutID = setTimeout(() => {
-           func.apply(null, args)
+            func.apply(null, args);
         }, delay);
-    }
-}
+    };
+};
